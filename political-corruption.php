@@ -11,6 +11,8 @@
  * Text Domain:       political-co
 */
 
+namespace PoliticalCorrption;
+
 if( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }

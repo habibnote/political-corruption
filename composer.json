@@ -1,0 +1,14 @@
+{
+    "authors": [
+        {
+            "name": "habibnote",
+            "email": "habibur.tj@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PoliticalCorrption\\" : "",
+            "PoliticalCorrption\\App\\" : "app/"
+        }
+    }
+}
