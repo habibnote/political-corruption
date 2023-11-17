@@ -52,6 +52,11 @@ class Political_Corruption {
     */
     private function hooks() {
         
+        //kick off all shortcode
+        new App\Shortcode();
+
+        //Ajax call
+        new App\Ajax();
     }
 
     /**
