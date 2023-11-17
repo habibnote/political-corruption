@@ -23,6 +23,33 @@ class Political_Corruption {
      */
     private function __construct() {
         
+        $this->include();
+        $this->define();
+        $this->hooks();
+    }
+
+    /**
+     * Include all files
+     */
+    private function include() {
+        require_once( dirname( __FILE__ ) . '/inc/functions.php' );
+        require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
+    }
+
+    /**
+     * Define all constant
+    */
+    private function define() {
+        define( 'PC', __FILE__ );
+        define( 'PC_DIR', dirname( PC ) );
+        define( 'PC_ASSET', plugins_url( 'assets', PC ) );
+    }
+
+    /**
+     * All Hooks
+    */
+    private function hooks() {
+        
     }
 
     /**
