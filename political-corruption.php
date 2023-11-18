@@ -1,8 +1,8 @@
 <?php 
 /*
  * Plugin Name:       Political Corruption
- * Plugin URI:        https://
- * Description:       
+ * Plugin URI:        https://github.com/habibnote/political-corruption
+ * Description:       This plugin for submit political Corruption
  * Version:           0.0.1
  * Requires at least: 5.2
  * Requires PHP:      7.2
@@ -36,6 +36,7 @@ final class Political_Corruption {
     private function include() {
         require_once( dirname( __FILE__ ) . '/inc/functions.php' );
         require_once( dirname( __FILE__ ) . '/vendor/autoload.php' );
+        require_once( dirname( __FILE__ ) . '/lib/class-tgm-plugin-activation.php' );
     }
 
     /**
@@ -57,6 +58,9 @@ final class Political_Corruption {
 
         //Ajax call
         new App\Ajax();
+
+        //all dependency
+        new App\Tgm();
     }
 
     /**

@@ -11,18 +11,13 @@ class Shortcode {
      * Class constructor
      */
     function __construct() {
+
         add_shortcode( 'pc_register', [$this, 'pc_user_registration'] );
         add_shortcode( 'pc_login', [$this, 'pc_user_login'] );
         add_shortcode( 'pc_main', [$this, 'pc_main_shortcode'] );
+
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
         add_action( 'init', [$this, 'pc_process_registration_form'] );
-    }
-
-    /**
-     * Pc main shortcode
-     */
-    function pc_main_shortcode() {
-        
     }
 
     /**
@@ -105,6 +100,16 @@ class Shortcode {
         //registration form
         ob_start();
         include_once( PC_DIR . "/view/form/user-ragistration.php" );
+        return ob_get_clean();
+    }
+
+    /**
+     * PC main shortcode
+     */
+    function pc_main_shortcode() {
+        //PC submittion form
+        ob_start();
+        include_once( PC_DIR . "/view/form/pc-submittion.php" );
         return ob_get_clean();
     }
 }
