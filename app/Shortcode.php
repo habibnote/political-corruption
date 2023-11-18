@@ -148,7 +148,7 @@ class Shortcode {
 
                                 pc_alert( "Registration successfull" );
 
-                                wp_redirect( "http://localhost:10033/" );
+                                wp_safe_redirect( site_url() . "/login" );
                                 exit;
                             }
                         }else{
@@ -203,6 +203,10 @@ class Shortcode {
      * PC main shortcode
      */
     function pc_main_shortcode() {
+
+        //Display all list
+        include_once( PC_DIR . "/view/pc-list/pc-list.php" );
+
         //PC submittion form
         ob_start();
         include_once( PC_DIR . "/view/form/pc-submittion.php" );

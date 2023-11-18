@@ -6,3 +6,13 @@
     display: none;
     color:crimson;
 }
+
+/*===Style for CP list ===*/
+.pc-container-wrapper{
+    width: 100%;
+}
+.pc-singler-pc-list{
+    padding: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+}
