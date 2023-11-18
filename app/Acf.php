@@ -11,8 +11,8 @@ class Acf {
      * class constructor
      */
     function __construct() {
-        add_action( 'acf/include_fields', 'acf_pc_all_meta_fields' );
-        add_action( 'init', 'pc_register_post_type' );
+        add_action( 'acf/include_fields', [$this, 'acf_pc_all_meta_fields'] );
+        add_action( 'init', [$this, 'pc_register_post_type'] );
     }
 
     /**
