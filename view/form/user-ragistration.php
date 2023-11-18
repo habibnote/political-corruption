@@ -21,6 +21,11 @@
         <p class="pc-password-invalid">Password should be at least 6 character</p>
     </p>
     <p>
+        <?php 
+            wp_nonce_field( 'pc_nonce' );
+        ?>
+    </p>
+    <p>
         <button type="submit" name="pc-register">Register</button>
     </p>
 </form>

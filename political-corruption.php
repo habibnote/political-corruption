@@ -17,7 +17,7 @@ if( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-class Political_Corruption {
+final class Political_Corruption {
     static $instance = false;
 
     /**
