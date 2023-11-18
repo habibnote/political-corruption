@@ -38,9 +38,29 @@ class Shortcode {
 
                     if( wp_verify_nonce( $nonce, 'pc_nonce' ) ) {
 
-                    }
+                        $is_username    = username_exists( $pc_username );
+                        $is_email       = email_exists( $pc_email );
 
-                    
+                        if( ! $is_username && ! $is_email ) {
+                            // Create the user
+                            $user_id = wp_create_user( $pc_username, $pc_password, $pc_email );
+
+                            if ( ! is_wp_error( $user_id ) ) {
+                                $user = get_user_by( 'id', $user_id );
+                                $user->set_role( 'subscriber' );
+                        
+                                // Add phone number as user meta data
+                                update_user_meta( $user_id, 'phone', $pc_phone );
+
+                                pc_alert( "Registration successfull" );
+
+                                wp_redirect( "http://localhost:10033/" );
+                                exit;
+                            }
+                        }else{
+                            pc_alert( "Invalid Username or Email" );
+                        }
+                    }
                 }else{
                     pc_alert( "All Field Are Required" );
                 }
