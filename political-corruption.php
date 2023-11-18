@@ -63,7 +63,7 @@ final class Political_Corruption {
         new App\Tgm();
 
         //register all acf meta filed
-        new APp\Acf();
+        new App\Acf();
     }
 
     /**
