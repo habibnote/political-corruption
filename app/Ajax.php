@@ -11,7 +11,8 @@ class Ajax {
      * Class constructor
      */
     function __construct() {
-        add_action( 'wp_ajax_nopriv_pc_avaiable_email', 'pc_is_email_avaiable' );
+        add_action( 'wp_ajax_pc_avaiable_email', [$this, 'pc_is_email_avaiable'] );
+        add_action( 'wp_ajax_nopriv_pc_avaiable_email', [$this, 'pc_is_email_avaiable'] );
     }
 
     /**

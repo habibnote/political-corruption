@@ -1,8 +1,9 @@
 jQuery(function($){
     $( document ).ready(function() {
 
+        //check email with ajax
         $(document).on('keyup', '#pc-email', function(){
-            
+
             let pc_email = $(this).val();
             emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -13,11 +14,10 @@ jQuery(function($){
                     _nonce: PC_ajax.nonce,
                     email: pc_email,
                 }, function(response) {
-                    console.log(response);
                     if (response.success) {
-                        $(this).append( "<span>Email is avaiable</span>" );
+                        console.log("Email is avaiable");
                     } else {
-                        $(this).append( "<span>Sorry Email is not Avaiable</span>" );
+                        console.log("Email not avaiable");
                     }
                 });
             }
