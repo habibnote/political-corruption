@@ -44,5 +44,18 @@ jQuery(function($){
                 }
             });
         });
+
+        //password checked
+        $(document).on('keyup', '#pc-password', function(){
+
+            let pc_password = $(this).val();
+
+            if( pc_password.length < 6 ) {
+                $('.pc-password-invalid').show();
+            }else{
+                $('.pc-password-invalid').hide();
+            }
+
+        });
     });
 });

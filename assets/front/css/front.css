@@ -2,7 +2,7 @@
     display:none;
     color:green;
 }
-.pc-email-unaviable, .pc-username-unaviable{
+.pc-email-unaviable, .pc-username-unaviable, .pc-password-invalid{
     display: none;
     color:crimson;
 }

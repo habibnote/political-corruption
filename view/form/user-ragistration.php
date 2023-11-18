@@ -18,6 +18,7 @@
     <p>
         <label for="pc-password">Password</label>
         <input type="password" name="pc-password" id="pc-password">
+        <p class="pc-password-invalid">Password should be at least 6 character</p>
     </p>
     <p>
         <button type="submit" name="pc-register">Register</button>
