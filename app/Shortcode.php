@@ -21,6 +21,12 @@ class Shortcode {
      */
     function pc_assets() {
         wp_enqueue_script( 'pc-front', PC_ASSET . "/front/js/front.js", ['jquery'], time(), true );
+
+        $admin_url =  admin_url( 'admin-ajax.php' );
+        wp_localize_script( 'pc-front', 'PC_ajax', array( 
+            'url'   => $admin_url,
+            'nonce' => wp_create_nonce( 'pc_nonce' )
+        ));
     }
 
     /**
