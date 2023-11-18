@@ -27,7 +27,8 @@ class Shortcode {
      * User Ragistration
      */
     function pc_user_registration() {
-
+        ob_start();
         include_once( PC_DIR . "/view/form/user-ragistration.php" );
+        return ob_get_clean();
     }
 }
