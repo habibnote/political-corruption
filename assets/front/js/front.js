@@ -15,9 +15,11 @@ jQuery(function($){
                     email: pc_email,
                 }, function(response) {
                     if (response.success) {
-                        console.log("Email is avaiable");
+                        $('.pc-email-unaviable').hide();
+                        $('.pc-email-avaiable').show();
                     } else {
-                        console.log("Email not avaiable");
+                        $('.pc-email-avaiable').hide();
+                        $('.pc-email-unaviable').show();
                     }
                 });
             }

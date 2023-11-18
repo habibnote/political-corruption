@@ -2,6 +2,8 @@
     <p>
         <label for="pc-email">Email</label>
         <input type="email" name="pc-email" id="pc-email">
+        <p class="pc-email-avaiable">Email is Avaiable</p>
+        <p class="pc-email-unaviable">Email is Exits</p>
     </p>
     <p>
         <label for="pc-phone">Phone</label>

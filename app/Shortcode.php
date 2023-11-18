@@ -20,6 +20,8 @@ class Shortcode {
      * Load all assets
      */
     function pc_assets() {
+        wp_enqueue_style( 'pc-front', PC_ASSET . "/front/css/front.css", [], time() );
+        
         wp_enqueue_script( 'pc-front', PC_ASSET . "/front/js/front.js", ['jquery'], time(), true );
 
         $admin_url =  admin_url( 'admin-ajax.php' );
