@@ -70,7 +70,7 @@ class Shortcode {
                     $post_data = array(
                         'post_title'    => $cp_name,
                         'post_type'     => 'political-corruption',
-                        'post_status'   => 'publish',
+                        'post_status'   => 'draft',
                         'post_author'   => get_current_user_id(),
                     );
                     
@@ -100,9 +100,9 @@ class Shortcode {
                     }
 
                     //give a message
-                    pc_alert( "Submition Successful" );
+                    pc_alert( "Submition Successful. To Show that into list need to approve first." );
 
-                    wp_redirect( 'http://localhost:10033/pc/' );
+                    wp_redirect( site_url("/pc") );
                     exit; 
                 }else{
 
@@ -204,18 +204,18 @@ class Shortcode {
      */
     function pc_main_shortcode() {
 
-        if( is_user_logged_in() ) {
+        //Display all list
+        include_once( PC_DIR . "/view/pc-list/pc-list.php" );
 
-            //Display all list
-            include_once( PC_DIR . "/view/pc-list/pc-list.php" );
+        if( is_user_logged_in() ) {
     
             //PC submittion form
             ob_start();
             include_once( PC_DIR . "/view/form/pc-submittion.php" );
             return ob_get_clean();
         }else{
-            echo "To access this page you need to login first <a href='http://localhost:10033/login'>login</a> ";
+            $login_url = site_url("/login");
+            echo "To Submit New Submittion You need to login first <a href='{$login_url}'>login</a> ";
         }
-
     }
 }
