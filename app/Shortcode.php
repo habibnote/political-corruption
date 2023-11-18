@@ -28,24 +28,64 @@ class Shortcode {
 
         if( ($_SERVER['REQUEST_METHOD'] == 'POST') ) {
             if( isset( $_POST['pc_submittion'] ) ) {
+
+                //all text filed
+                $pc_state   = sanitize_text_field( $_POST['pc_state'] ) ?? '';
+                $pc_city    = sanitize_text_field( $_POST['pc_city'] ) ?? '';
+                $pc_country = sanitize_text_field( $_POST['pc_country'] ) ?? '';
                 
+                //all files
                 $pc_audio   = $_FILES['pc_audio'] ?? '';
                 $pc_video   = $_FILES['pc_video'] ?? '';
                 $pc_doc     = $_FILES['pc_doc'] ?? '';
 
-                if( $pc_audio ) {
-                    pc_upload_files( $pc_audio );
-                }
-                if( $pc_video ) {
-                    pc_upload_files( $pc_video );
-                } 
-                if( $pc_doc ) {
-                    pc_upload_files( $pc_doc );
-                }
+                /**
+                 * Create post
+                */
+                if( $pc_city ) {
 
-                // update_field( 'video', $pc_video, 20 );
-                // update_field( 'document', $pc_doc, 20 );
+                    $post_data = array(
+                        'post_title'    => $pc_city,
+                        'post_type'     => 'political-corruption',
+                        'post_status'   => 'publish',
+                        'post_author'   => get_current_user_id(),
+                    );
+                    
+                    // Insert the post into the database
+                    $post_id = wp_insert_post($post_data);
 
+                    //update all post meta
+                    if( $pc_state ) {
+                        update_field( 'state', $pc_state, $post_id );
+                    }
+                    if( $pc_city ) {
+                        update_field( 'city', $pc_city, $post_id );
+                    }
+                    if( $pc_country ) {
+                        update_field( 'country', $pc_country, $post_id );
+                    }
+
+                    //update all files into meta
+                    if( $pc_audio ) {
+                        update_field( 'audio',  pc_upload_files( $pc_audio ), $post_id );
+                    }
+                    if( $pc_video ) {
+                        update_field( 'video', pc_upload_files( $pc_video ), $post_id );
+                    }
+                    if( $pc_doc ) {
+                        update_field( 'document', pc_upload_files( $pc_doc ), $post_id );
+                    }
+
+                    //give a message
+                    pc_alert( "Submition Successful" );
+
+                    wp_redirect( 'http://localhost:10033/pc/' );
+                    exit; 
+                }else{
+
+                    //give a message
+                    pc_alert( "City is needed" );
+                }
             }
         }
     }
