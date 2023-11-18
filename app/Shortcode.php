@@ -204,12 +204,18 @@ class Shortcode {
      */
     function pc_main_shortcode() {
 
-        //Display all list
-        include_once( PC_DIR . "/view/pc-list/pc-list.php" );
+        if( is_user_logged_in() ) {
 
-        //PC submittion form
-        ob_start();
-        include_once( PC_DIR . "/view/form/pc-submittion.php" );
-        return ob_get_clean();
+            //Display all list
+            include_once( PC_DIR . "/view/pc-list/pc-list.php" );
+    
+            //PC submittion form
+            ob_start();
+            include_once( PC_DIR . "/view/form/pc-submittion.php" );
+            return ob_get_clean();
+        }else{
+            echo "To access this page you need to login first <a href='http://localhost:10033/login'>login</a> ";
+        }
+
     }
 }

@@ -29,7 +29,7 @@
                         </video>
                     </p>
                     <p>
-                        <object data="<?php echo get_field( 'document', get_the_ID(), true ); ?>" width="100%" height="400" type="application/pdf">
+                        <object data="<?php echo get_field( 'document', get_the_ID(), true ); ?>" width="400" height="400" type="application/pdf">
                         </object>
                     </p>
                 </div>
