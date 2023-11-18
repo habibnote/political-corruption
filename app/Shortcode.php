@@ -13,8 +13,16 @@ class Shortcode {
     function __construct() {
         add_shortcode( 'pc_register', [$this, 'pc_user_registration'] );
         add_shortcode( 'pc_login', [$this, 'pc_user_login'] );
+        add_shortcode( 'pc_main', [$this, 'pc_main_shortcode'] );
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
         add_action( 'init', [$this, 'pc_process_registration_form'] );
+    }
+
+    /**
+     * Pc main shortcode
+     */
+    function pc_main_shortcode() {
+        
     }
 
     /**
