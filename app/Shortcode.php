@@ -14,7 +14,8 @@ class Shortcode {
 
         add_shortcode( 'pc_register', [$this, 'pc_user_registration'] );
         add_shortcode( 'pc_login', [$this, 'pc_user_login'] );
-        add_shortcode( 'pc_main', [$this, 'pc_main_shortcode'] );
+        add_shortcode( 'pc_list', [$this, 'pc_main_shortcode'] );
+        add_shortcode( 'pc_form', [$this, 'pc_main_form'] );
 
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
         add_action( 'init', [$this, 'pc_process_registration_form'] );
@@ -206,7 +207,13 @@ class Shortcode {
 
         //Display all list
         include_once( PC_DIR . "/view/pc-list/pc-list.php" );
+    }
 
+    /**
+     * Main PC form
+     * */
+    function pc_main_form() {
+        
         if( is_user_logged_in() ) {
     
             //PC submittion form
