@@ -19,6 +19,14 @@ class Shortcode {
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
         add_action( 'init', [$this, 'pc_process_registration_form'] );
         add_action( 'init', [$this, 'pc_process_main_submittion'] );
+        add_action( 'init', [$this, 'pc_process_login_form'] );
+    }
+
+    /**
+     * Process Login Form
+     */
+    function pc_process_login_form() {
+        
     }
     
     /**
@@ -160,7 +168,10 @@ class Shortcode {
     */
     function pc_user_login() {
 
+        //login form
+        ob_start();
         include_once( PC_DIR . "/view/form/user-login.php" );
+        return ob_get_clean();
     }
 
     /**
