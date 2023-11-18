@@ -14,17 +14,15 @@ class Shortcode {
         add_shortcode( 'pc_register', [$this, 'pc_user_registration'] );
         add_shortcode( 'pc_login', [$this, 'pc_user_login'] );
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
-        add_action( 'init', [$this, 'pc_process_form'] );
+        add_action( 'init', [$this, 'pc_process_registration_form'] );
     }
 
     /**
      * Proccessing all form 
      */
-    function pc_process_form() {
+    function pc_process_registration_form() {
 
         if( ($_SERVER['REQUEST_METHOD'] == 'POST') ) {
-
-            //Process User ragistration form
             if( isset( $_POST['pc-register'] ) ) {
                 
                 $pc_email       = sanitize_email( $_POST['pc-email'] ) ?? '';
