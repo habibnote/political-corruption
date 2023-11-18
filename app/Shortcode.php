@@ -26,7 +26,21 @@ class Shortcode {
      * Process Login Form
      */
     function pc_process_login_form() {
-        
+        function custom_login_form_action() {
+
+            if ( isset( $_POST['wp-submit'] ) ) {
+
+              $user = get_user_by( 'email', sanitize_email( $_POST['user_login'] ) );
+          
+              if ( $user && wp_check_password( $_POST['user_pass'], $user->data->ID ) ) {
+                wp_set_auth_cookie( $user->ID );
+                wp_safe_redirect( home_url() );
+                exit;
+              } else {
+                pc_alert( "InValid usrname/email or password." );
+              }
+            }
+          }
     }
     
     /**
