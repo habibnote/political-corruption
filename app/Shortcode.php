@@ -30,6 +30,7 @@ class Shortcode {
             if( isset( $_POST['pc_submittion'] ) ) {
 
                 //all text filed
+                $cp_name    = sanitize_text_field( $_POST['cp_name'] ) ?? '';
                 $pc_state   = sanitize_text_field( $_POST['pc_state'] ) ?? '';
                 $pc_city    = sanitize_text_field( $_POST['pc_city'] ) ?? '';
                 $pc_country = sanitize_text_field( $_POST['pc_country'] ) ?? '';
@@ -42,10 +43,10 @@ class Shortcode {
                 /**
                  * Create post
                 */
-                if( $pc_city ) {
+                if( $cp_name ) {
 
                     $post_data = array(
-                        'post_title'    => $pc_city,
+                        'post_title'    => $cp_name,
                         'post_type'     => 'political-corruption',
                         'post_status'   => 'publish',
                         'post_author'   => get_current_user_id(),
@@ -84,7 +85,7 @@ class Shortcode {
                 }else{
 
                     //give a message
-                    pc_alert( "City is needed" );
+                    pc_alert( "Atleast Corrupt politician's Name is required" );
                 }
             }
         }

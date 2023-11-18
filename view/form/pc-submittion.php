@@ -1,5 +1,9 @@
 <form method="POST" enctype="multipart/form-data">
     <p>
+        <label for="cp_name">Corrupt politician's Name</label>
+        <input type="text" name="cp_name" id="cp_name">
+    </p>
+    <p>
         <label for="pc_state">State</label>
         <input type="text" name="pc_state" id="pc_state">
     </p>
@@ -20,7 +24,7 @@
         <input type="file" name="pc_video" id="pc_video" accept="video/*">
     </p>
     <p>
-        <label for="pc_doc">Uploda a Document</label>
+        <label for="pc_doc">Upload a Document (pdf/doc/docx)</label>
         <input type="file" id="pc_doc" name="pc_doc" accept=".pdf,.doc,.docx">
     </p>
     <p>
