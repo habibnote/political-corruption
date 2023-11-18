@@ -18,6 +18,36 @@ class Shortcode {
 
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
         add_action( 'init', [$this, 'pc_process_registration_form'] );
+        add_action( 'init', [$this, 'pc_process_main_submittion'] );
+    }
+    
+    /**
+     * Process PC main submittion
+     */
+    function pc_process_main_submittion() {
+
+        if( ($_SERVER['REQUEST_METHOD'] == 'POST') ) {
+            if( isset( $_POST['pc_submittion'] ) ) {
+                
+                $pc_audio   = $_FILES['pc_audio'] ?? '';
+                $pc_video   = $_FILES['pc_video'] ?? '';
+                $pc_doc     = $_FILES['pc_doc'] ?? '';
+
+                if( $pc_audio ) {
+                    pc_upload_files( $pc_audio );
+                }
+                if( $pc_video ) {
+                    pc_upload_files( $pc_video );
+                } 
+                if( $pc_doc ) {
+                    pc_upload_files( $pc_doc );
+                }
+
+                // update_field( 'video', $pc_video, 20 );
+                // update_field( 'document', $pc_doc, 20 );
+
+            }
+        }
     }
 
     /**
