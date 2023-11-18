@@ -13,6 +13,14 @@ class Shortcode {
     function __construct() {
         add_shortcode( 'pc_register', [$this, 'pc_user_registration'] );
         add_shortcode( 'pc_login', [$this, 'pc_user_login'] );
+        add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
+    }
+
+    /**
+     * Load all assets
+     */
+    function pc_assets() {
+        wp_enqueue_script( 'pc-front', PC_ASSET . "/front/js/front.js", ['jquery'], time(), true );
     }
 
     /**
