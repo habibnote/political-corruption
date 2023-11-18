@@ -24,5 +24,25 @@ jQuery(function($){
                 });
             }
         });
+
+        //check username with ajax
+        $(document).on('keyup', '#pc-username', function(){
+
+            let pc_username = $(this).val();
+ 
+            $.post(PC_ajax.url, {
+                action: 'pc_avaiable_username',
+                _nonce: PC_ajax.nonce,
+                username: pc_username,
+            }, function(response) {
+                if (response.success) {
+                    $('.pc-username-unaviable').hide();
+                    $('.pc-username-avaiable').show();
+                } else {
+                    $('.pc-username-avaiable').hide();
+                    $('.pc-username-unaviable').show();
+                }
+            });
+        });
     });
 });

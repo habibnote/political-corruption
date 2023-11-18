@@ -1,8 +1,8 @@
-.pc-email-avaiable{
+.pc-email-avaiable, .pc-username-avaiable{
     display:none;
     color:green;
 }
-.pc-email-unaviable{
+.pc-email-unaviable, .pc-username-unaviable{
     display: none;
     color:crimson;
 }
