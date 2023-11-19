@@ -21,6 +21,21 @@ class Shortcode {
         add_action( 'init', [$this, 'pc_process_registration_form'] );
         add_action( 'init', [$this, 'pc_process_main_submittion'] );
         add_action( 'init', [$this, 'pc_process_login_form'] );
+
+        add_filter( 'single_template', [$this, 'pc_single_template'] );
+    }
+
+    /**
+     * Define PC single template
+     */
+    function pc_single_template( $file ) {
+        global $post;
+
+        if( 'political-corruption' == $post->post_type ) {
+            $file_path  = PC_DIR . '/pc-templates/single-political-corruption.php';
+            $file       = $file_path;
+        }
+        return $file;
     }
 
     /**

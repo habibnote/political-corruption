@@ -14,15 +14,19 @@
                     <p>
                         <?php 
                             $content = get_the_content(); 
-                            $content = explode(" ", $string);
+                            $content = explode(" ", $content );
 
-                            if( count( $content ) > 10 ) {
+                            if( is_array( $content  ) ) {
                                 
-                                $content = array_slice( $words, 0, 20 );
-                                $content = implode( " ", $content );
+                                if( count( $content ) > 10 ) {
+                                    $content = array_slice( $content, 0, 20 );
+                                    $content = implode( " ", $content );
+                                }else {
+                                    $content = implode( " ", $content );
+                                }
                             }
 
-                            $content = implode( " ", $content );
+
 
                             printf( 
                                 "%1s 
