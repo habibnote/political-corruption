@@ -16,6 +16,10 @@
         <input type="text" name="pc_country" id="pc_country">
     </p>
     <p>
+        <label for="pc_description">Description</label>
+        <textarea name="pc_description" id="pc_description"></textarea>
+    </p>
+    <p>
         <label for="pc_audio">Upload a Audio</label>
         <input type="file" name="pc_audio" id="pc_audio" accept="audio/*">
     </p>

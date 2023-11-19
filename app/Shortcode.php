@@ -57,6 +57,7 @@ class Shortcode {
                 $pc_state   = sanitize_text_field( $_POST['pc_state'] ) ?? '';
                 $pc_city    = sanitize_text_field( $_POST['pc_city'] ) ?? '';
                 $pc_country = sanitize_text_field( $_POST['pc_country'] ) ?? '';
+                $pc_description = sanitize_text_field( $_POST['pc_description'] ) ?? '';
                 
                 //all files
                 $pc_audio   = $_FILES['pc_audio'] ?? '';
@@ -73,10 +74,11 @@ class Shortcode {
                         'post_type'     => 'political-corruption',
                         'post_status'   => 'draft',
                         'post_author'   => get_current_user_id(),
+                        'post_content'  => $pc_description,
                     );
                     
                     // Insert the post into the database
-                    $post_id = wp_insert_post($post_data);
+                    $post_id = wp_insert_post( $post_data );
 
                     //update all post meta
                     if( $pc_state ) {
