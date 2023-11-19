@@ -17,6 +17,9 @@
                         <?php printf( "<span>Country: %s</span>", get_field( 'country', get_the_ID(), true ) ); ?> 
                     </p>
                     <p>
+                        <?php the_content(); ?>
+                    </p>
+                    <p>
                         <audio controls>
                             <source src="<?php echo get_field( 'audio', get_the_ID(), true ); ?>" type="audio/mpeg">
                             <source src="<?php echo get_field( 'audio', get_the_ID(), true ); ?>" type="audio/wav">
@@ -29,8 +32,7 @@
                         </video>
                     </p>
                     <p>
-                        <object data="<?php echo get_field( 'document', get_the_ID(), true ); ?>" width="400" height="400" type="application/pdf">
-                        </object>
+                        <a href="<?php echo get_field( 'document', get_the_ID(), true ); ?>" download="<?php echo get_field( 'document', get_the_ID(), true ); ?>">Download Document</a>
                     </p>
                 </div>
             <?php 
