@@ -10,14 +10,34 @@
             $query->the_post();
             ?>
                 <div class="pc-singler-pc-list">
-                    <h2><?php the_title();?></h2>
+                    <h2> <a href="<?php the_permalink();?>"><?php the_title();?></a></h2>
                     <p> 
                         <?php printf( "<span>State: %s</span>", get_field( 'state', get_the_ID(), true ) ); ?>,
                         <?php printf( "<span>City: %s</span>", get_field( 'city', get_the_ID(), true ) ); ?>,
                         <?php printf( "<span>Country: %s</span>", get_field( 'country', get_the_ID(), true ) ); ?> 
                     </p>
                     <p>
-                        <?php the_content(); ?>
+                        <?php 
+                            $content = get_the_content(); 
+                            $content = explode(" ", $string);
+
+                            if( count( $content ) > 10 ) {
+                                
+                                $content = array_slice( $words, 0, 20 );
+                                $content = implode( " ", $content );
+                            }
+
+                            $content = implode( " ", $content );
+
+                            printf( 
+                                "%1s 
+                                <a href='%2s'>%3s</a>
+                                ", 
+                                $content,
+                                get_the_permalink(),
+                                __( 'Read More', 'political-co' )
+                            );
+                        ?>
                     </p>
                     <p>
                         <audio controls>

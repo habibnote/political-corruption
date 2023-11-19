@@ -105,7 +105,7 @@ class Shortcode {
                     //give a message
                     pc_alert( "Information has been received, it will be published after review" );
 
-                    wp_redirect( site_url("/pc") );
+                    wp_redirect( site_url() );
                     exit; 
                 }else{
 
