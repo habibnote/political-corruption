@@ -101,7 +101,7 @@ class Shortcode {
                     }
 
                     //give a message
-                    pc_alert( "Submition Successful. To Show that into list need to approve first." );
+                    pc_alert( "Information has been received, it will be published after review" );
 
                     wp_redirect( site_url("/pc") );
                     exit; 
