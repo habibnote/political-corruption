@@ -19,7 +19,12 @@ while ( have_posts() ) :
 	<?php if ( apply_filters( 'hello_elementor_page_title', true ) ) : ?>
 		<header class="page-header">
             <?php 
-                printf( '<p class="report-number">%s: #%s</p>', __( 'Report number', 'political-co' ), get_post_meta( get_the_ID(), 'pc_report_number', true ) ); 
+
+                $report_number = get_post_meta( get_the_ID(), 'pc_report_number', true );
+
+                if( $report_number ) {
+                    printf( '<p class="report-number">%s: #%s</p>', __( 'Report number', 'political-co' ), $report_number ); 
+                }
             ?>
 
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
