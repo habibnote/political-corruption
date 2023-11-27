@@ -19,7 +19,7 @@ class Shortcode {
 
         //save post and delete post hook
         add_action( 'save_post', [$this, 'pc_track_political_corruption_create'], 10, 2 );
-        add_action( 'before_delete_post', 'pc_track_political_corruption_delete' );
+        add_action( 'before_delete_post', [$this, 'pc_track_political_corruption_delete'] );
 
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
         add_action( 'init', [$this, 'pc_process_registration_form'] );
