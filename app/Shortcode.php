@@ -17,12 +17,43 @@ class Shortcode {
         add_shortcode( 'pc_list', [$this, 'pc_main_shortcode'] );
         add_shortcode( 'pc_form', [$this, 'pc_main_form'] );
 
+        //save post and delete post hook
+        add_action( 'save_post', [$this, 'pc_track_political_corruption_create'], 10, 2 );
+        add_action( 'before_delete_post', 'pc_track_political_corruption_delete' );
+
         add_action( 'wp_enqueue_scripts', [$this, 'pc_assets'] );
         add_action( 'init', [$this, 'pc_process_registration_form'] );
         add_action( 'init', [$this, 'pc_process_main_submittion'] );
         add_action( 'init', [$this, 'pc_process_login_form'] );
 
         add_filter( 'single_template', [$this, 'pc_single_template'] );
+    }
+
+    /**
+     * add Report number when post has been created
+     */
+    function pc_track_political_corruption_create( $post_id, $post ) {
+
+        if ( $post->post_type == 'political-corruption' ) {
+            
+            //adjust report number
+            pc_update_report();
+        }
+    }
+
+    /**
+     * adjust post number when post has been delete
+     */
+    function pc_track_political_corruption_delete( $post_id ) {
+
+        // Get the post object
+        $post = get_post($post_id);
+
+        if ( $post->post_type == 'political-corruption' ) {
+
+            //adjust report number
+            pc_update_report();
+        }
     }
 
     /**

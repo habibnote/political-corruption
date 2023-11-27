@@ -62,3 +62,39 @@ if( ! function_exists( 'pc_upload_files' ) ) {
         }
     }
 }
+
+/**
+ * Update report Numner
+ */
+if( ! function_exists( 'pc_update_report' ) ) {
+
+    function pc_update_report() {
+
+        $args = array(
+            'post_type'      => 'political-corruption',
+            'post_status'    => 'publish',
+            'orderby'        => 'date',
+            'order'          => 'ASC',
+            'posts_per_page' => -1,
+        );
+
+        $pc_report_query = new WP_Query( $args );
+
+        $report_number = 1;
+
+        //Check post is exit or not
+        if( $pc_report_query->have_posts() ) { 
+            while( $pc_report_query->have_posts() ) {
+                $pc_report_query->the_post();
+
+                //update post meta 
+                update_post_meta( get_the_ID(), 'pc_report_number', $report_number );
+
+                //increase 
+                $report_number++;
+            }
+        }
+         
+        wp_reset_postdata();
+    }
+}
