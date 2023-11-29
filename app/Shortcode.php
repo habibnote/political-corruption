@@ -106,6 +106,7 @@ class Shortcode {
                 $pc_description = sanitize_text_field( $_POST['pc_description'] ) ?? '';
                 
                 //all files
+                $pc_profile = $_FILES['pc_profile'] ?? '';
                 $pc_audio   = $_FILES['pc_audio'] ?? '';
                 $pc_video   = $_FILES['pc_video'] ?? '';
                 $pc_doc     = $_FILES['pc_doc'] ?? '';
@@ -147,6 +148,17 @@ class Shortcode {
                     if( $pc_doc ) {
                         update_field( 'document', pc_upload_files( $pc_doc ), $post_id );
                     }
+
+                    //Insert post thumbail 
+                    $pc_thumbnail_id = pc_upload_files( $pc_profile );
+
+                    // Set the featured image
+                    set_post_thumbnail( $post_id, $pc_thumbnail_id );
+
+                    // Update the post to save the changes
+                    wp_update_post( array( 'ID' => $post_id ) );
+
+                    // Update the post to save the changes
 
                     //give a message
                     pc_alert( "Information has been received, it will be published after review" );
