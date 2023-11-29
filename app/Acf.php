@@ -208,6 +208,7 @@ class Acf {
                 0 => 'title',
                 1 => 'editor',
                 2 => 'custom-fields',
+                3 => 'thumbnail'
             ),
             'delete_with_user' => false,
         ) );

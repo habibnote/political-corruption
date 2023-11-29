@@ -25,7 +25,7 @@ if( ! function_exists( 'pc_upload_files' ) ) {
         $fileError = $file['error'];
         $fileType = $file['type'];
 
-        $allowedExtensions = array( 'mp3', 'wav', 'ogg', 'wma', 'aac', 'flac', 'mid', 'mp4', 'wmv', 'avi', 'flv', 'mpeg', 'ogv', 'webm', 'mkv', 'doc', 'docx', 'pdf' );
+        $allowedExtensions = array( 'mp3', 'wav', 'ogg', 'wma', 'aac', 'flac', 'mid', 'mp4', 'wmv', 'avi', 'flv', 'mpeg', 'ogv', 'webm', 'mkv', 'doc', 'docx', 'pdf', 'jpg', 'jpeg', 'png', 'ico', 'webp', 'bmp', 'gif' );
 
         $fileExtension = strtolower( pathinfo( $fileName, PATHINFO_EXTENSION ) );
 
