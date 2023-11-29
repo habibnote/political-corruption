@@ -1,5 +1,9 @@
 <form method="POST" enctype="multipart/form-data">
     <p>
+        <label for="cp_profile">Profile</label>
+        <input type="file" name="pc_profile" id="pc_profile" accept="image/*">
+    </p>
+    <p>
         <label for="cp_name">Corrupt politician's Name</label>
         <input type="text" name="cp_name" id="cp_name">
     </p>
