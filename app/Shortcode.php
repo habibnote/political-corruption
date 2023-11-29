@@ -158,8 +158,6 @@ class Shortcode {
                     // Update the post to save the changes
                     wp_update_post( array( 'ID' => $post_id ) );
 
-                    // Update the post to save the changes
-
                     //give a message
                     pc_alert( "Information has been received, it will be published after review" );
 

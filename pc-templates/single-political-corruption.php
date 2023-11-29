@@ -33,6 +33,8 @@ while ( have_posts() ) :
 
 	<div class="page-content">
 
+        <?php the_post_thumbnail(); ?>
+
         <p> 
             <?php printf( "<span>State: %s</span>", get_field( 'state', get_the_ID(), true ) ); ?>,
             <?php printf( "<span>City: %s</span>", get_field( 'city', get_the_ID(), true ) ); ?>,
