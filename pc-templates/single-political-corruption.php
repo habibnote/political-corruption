@@ -12,6 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 while ( have_posts() ) :
 	the_post();
+
+    $title      = get_field( 'title', get_the_ID(), true );
+    $date       = get_field( 'date', get_the_ID(), true );
+    $state      = get_field( 'state', get_the_ID(), true );
+    $city       = get_field( 'city', get_the_ID(), true );
+    $country    = get_field( 'country', get_the_ID(), true );
+
 	?>
 
 <main id="content" <?php post_class( 'site-main' ); ?>>
@@ -36,9 +43,23 @@ while ( have_posts() ) :
         <?php the_post_thumbnail(); ?>
 
         <p> 
-            <?php printf( "<span>State: %s</span>", get_field( 'state', get_the_ID(), true ) ); ?>,
-            <?php printf( "<span>City: %s</span>", get_field( 'city', get_the_ID(), true ) ); ?>,
-            <?php printf( "<span>Country: %s</span>", get_field( 'country', get_the_ID(), true ) ); ?> 
+            <?php
+                if( $title ) {
+                    printf( "<span>Title: %s</span>", $title );
+                }
+                if( $date ) {
+                    printf( "<span>Date: %s</span>", $date );
+                }
+                if( $state ) {
+                    printf( "<span>State: %s</span>", $state );
+                }
+                if( $city ) {
+                    printf( "<span>City: %s</span>", $city );
+                }
+                if( $country ) {
+                    printf( "<span>Country: %s</span>", $country );
+                }
+                ?>
         </p>
 
 		<?php the_content(); ?>
