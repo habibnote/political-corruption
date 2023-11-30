@@ -1,4 +1,4 @@
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" action="<?php echo site_url(); ?>" enctype="multipart/form-data">
     <p>
         <label for="cp_profile">Profile</label>
         <input type="file" name="pc_profile" id="pc_profile" accept="image/*">

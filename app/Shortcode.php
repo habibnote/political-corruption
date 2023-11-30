@@ -167,10 +167,10 @@ class Shortcode {
                     wp_update_post( array( 'ID' => $post_id ) );
 
                     //give a message
-                    pc_alert( "Information has been received, it will be published after review" );
+                    printf( "<span style='color:#008000;'>Information has been received, it will be published after review</span>" );
 
-                    wp_redirect( site_url() );
-                    exit; 
+                    // wp_redirect( 'http://localhost:10033/pc-form/' );
+                    // exit; 
                 }else{
 
                     //give a message
