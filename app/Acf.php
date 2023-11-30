@@ -13,7 +13,7 @@ class Acf {
     function __construct() {
         add_action( 'acf/include_fields', [$this, 'acf_pc_all_meta_fields'] );
         add_action( 'init', [$this, 'pc_register_post_type'] );
-        // add_filter( 'acf/settings/show_admin', '__return_false' );
+        add_filter( 'acf/settings/show_admin', '__return_false' );
     }
 
     /**
