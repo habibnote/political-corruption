@@ -8,6 +8,14 @@
         <input type="text" name="cp_name" id="cp_name">
     </p>
     <p>
+        <label for="cp_title">Title</label>
+        <input type="text" name="pc_title" id="pc_title">
+    </p>
+    <p>
+        <label for="cp_date">Date</label>
+        <input type="date" name="pc_date" id="pc_date">
+    </p>
+    <p>
         <label for="pc_state">State</label>
         <input type="text" name="pc_state" id="pc_state">
     </p>
