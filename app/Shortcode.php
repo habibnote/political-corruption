@@ -100,6 +100,8 @@ class Shortcode {
 
                 //all text filed
                 $cp_name    = sanitize_text_field( $_POST['cp_name'] ) ?? '';
+                $pc_title   = sanitize_text_field( $_POST['pc_title'] ) ?? '';
+                $pc_date    = sanitize_text_field( $_POST['pc_date'] ) ?? '';
                 $pc_state   = sanitize_text_field( $_POST['pc_state'] ) ?? '';
                 $pc_city    = sanitize_text_field( $_POST['pc_city'] ) ?? '';
                 $pc_country = sanitize_text_field( $_POST['pc_country'] ) ?? '';
@@ -136,6 +138,12 @@ class Shortcode {
                     }
                     if( $pc_country ) {
                         update_field( 'country', $pc_country, $post_id );
+                    }
+                    if( $pc_title ) {
+                        update_field( 'title', $pc_title, $post_id );
+                    }
+                    if( $pc_date ) {
+                        update_field( 'date', $pc_date, $post_id );
                     }
 
                     //update all files into meta
