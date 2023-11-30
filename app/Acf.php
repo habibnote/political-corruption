@@ -13,7 +13,7 @@ class Acf {
     function __construct() {
         add_action( 'acf/include_fields', [$this, 'acf_pc_all_meta_fields'] );
         add_action( 'init', [$this, 'pc_register_post_type'] );
-        add_filter( 'acf/settings/show_admin', '__return_false' );
+        // add_filter( 'acf/settings/show_admin', '__return_false' );
     }
 
     /**
@@ -43,6 +43,44 @@ class Acf {
                     'placeholder' => '',
                     'prepend' => '',
                     'append' => '',
+                ),
+                array(
+                    'key' => 'field_6568c9e5e8121',
+                    'label' => 'title',
+                    'name' => 'title',
+                    'aria-label' => '',
+                    'type' => 'text',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'maxlength' => '',
+                    'placeholder' => '',
+                    'prepend' => '',
+                    'append' => '',
+                ),
+                array(
+                    'key' => 'field_6568c9f3e8122',
+                    'label' => 'date',
+                    'name' => 'date',
+                    'aria-label' => '',
+                    'type' => 'date_picker',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'display_format' => 'm/d/Y',
+                    'return_format' => 'F j, Y',
+                    'first_day' => 1,
                 ),
                 array(
                     'key' => 'field_655874cf88eb8',
