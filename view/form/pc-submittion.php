@@ -32,6 +32,10 @@
         <textarea name="pc_description" id="pc_description"></textarea>
     </p>
     <p>
+        <label for="pc_url">Urls <span style="font-size: 13px; font-style:italic;">For multiple Url use comma </span> </label>
+        <textarea name="pc_url" id="pc_url"></textarea>
+    </p>
+    <p>
         <label for="pc_audio">Upload a Audio</label>
         <input type="file" name="pc_audio" id="pc_audio" accept="audio/*">
     </p>
@@ -60,6 +64,7 @@
             $pc_state   = sanitize_text_field( $_POST['pc_state'] ) ?? '';
             $pc_city    = sanitize_text_field( $_POST['pc_city'] ) ?? '';
             $pc_country = sanitize_text_field( $_POST['pc_country'] ) ?? '';
+            $pc_url     = sanitize_text_field( $_POST['pc_url'] ) ?? '';
             $pc_description = sanitize_text_field( $_POST['pc_description'] ) ?? '';
             
             //all files
@@ -99,6 +104,9 @@
                 }
                 if( $pc_date ) {
                     update_field( 'date', $pc_date, $post_id );
+                }
+                if( $pc_url ) {
+                    update_field( 'url', $pc_url, $post_id );
                 }
 
                 //update all files into meta

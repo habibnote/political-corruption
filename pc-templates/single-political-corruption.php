@@ -18,6 +18,7 @@ while ( have_posts() ) :
     $state      = get_field( 'state', get_the_ID(), true );
     $city       = get_field( 'city', get_the_ID(), true );
     $country    = get_field( 'country', get_the_ID(), true );
+    $urls       = get_field( 'url', get_the_ID(), true );
 
 	?>
 
@@ -63,6 +64,18 @@ while ( have_posts() ) :
         </p>
 
 		<?php the_content(); ?>
+
+        <p>
+            <?php 
+                if( $urls ) {
+                    $urls = explode( ",", $urls );
+
+                    foreach( $urls as $url ) {
+                        printf( "<a href='%s'>%s</a><br>", $url, $url );
+                    }
+                }
+            ?>
+        </p>
 
         <p>
             <audio controls>

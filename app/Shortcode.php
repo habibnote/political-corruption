@@ -94,7 +94,6 @@ class Shortcode {
      * Process PC main submittion
      */
     function pc_process_main_submittion() {
-
         
     }
 
